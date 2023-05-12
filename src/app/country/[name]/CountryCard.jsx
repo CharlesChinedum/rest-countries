@@ -15,15 +15,25 @@ const CountryCard = ({ country }) => {
   const border = country[0].borders;
 
   //inline styles
-  const bigText = "font-semibold text-[0.9rem] text-gray-700 mb-2";
+  const bigText = "font-semibold text-[0.9rem] mb-2";
   const smallText = "text-xs text-gray-500";
 
   return (
-    <div>
-      <div className="w-full px-12 mt-12">
+    <div
+      className={`${
+        theme === "White Mode" ? "bg-white" : styles.darkBG
+      }  h-full `}
+    >
+      <div className="w-full px-12 pt-12">
         <Link href="/">
-          <div className="flex gap-2 shadow-gray-300 shadow-sm w-[7rem] items-center justify-center px-3 py-1 rounded-md cursor-pointer">
-            {"<- Back"}
+          <div
+            className={`${
+              theme === "White Mode"
+                ? "bg-white shadow-gray-300 text-black"
+                : styles.darkBG
+            } shadow-slate-950  flex gap-2 shadow-sm w-[7rem] items-center justify-center px-3 py-1 rounded-md cursor-pointer`}
+          >
+            <p>{"< Back"}</p>
           </div>
         </Link>
 
@@ -42,7 +52,11 @@ const CountryCard = ({ country }) => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-3 flex-1 w-[50%]">
+          <div
+            className={` ${
+              theme === "White Mode" ? "text-black" : "text-white"
+            } flex flex-col gap-3 flex-1 w-[50`}
+          >
             <div className="py-5">
               <h1 className="font-semibold text-[1.5rem]">
                 {country[0].name.common}
@@ -50,44 +64,82 @@ const CountryCard = ({ country }) => {
             </div>
             <div className="flex gap-10">
               <div>
-                <p className={bigText}>
+                <p
+                  className={`${
+                    theme === "White Mode" ? "text-gray-600" : "text-gray-200"
+                  } ${bigText}`}
+                >
                   Population:{" "}
                   <span className={smallText}>{country[0].population}</span>
                 </p>
-                <p className={bigText}>
+                <p
+                  className={`${
+                    theme === "White Mode" ? "text-gray-600" : "text-gray-200"
+                  } ${bigText}`}
+                >
                   Region: <span className={smallText}>{country[0].region}</span>
                 </p>
-                <p className={bigText}>
+                <p
+                  className={`${
+                    theme === "White Mode" ? "text-gray-600" : "text-gray-200"
+                  } ${bigText}`}
+                >
                   Sub Region:{" "}
                   <span className={smallText}>{country[0].subregion}</span>
                 </p>
-                <p className={bigText}>
+                <p
+                  className={`${
+                    theme === "White Mode" ? "text-gray-600" : "text-gray-200"
+                  } ${bigText}`}
+                >
                   Capital:{" "}
                   <span className={smallText}>{country[0].capital[0]}</span>
                 </p>
               </div>
               <div>
-                <p className={bigText}>
+                <p
+                  className={`${
+                    theme === "White Mode" ? "text-gray-600" : "text-gray-200"
+                  } ${bigText}`}
+                >
                   Top Level Domain:{" "}
                   <span className={smallText}>{country[0].tld}</span>
                 </p>
-                <p className={bigText}>
+                <p
+                  className={`${
+                    theme === "White Mode" ? "text-gray-600" : "text-gray-200"
+                  } ${bigText}`}
+                >
                   Currencies: <span className={smallText}>{currency}</span>
                 </p>
-                <p className={bigText}>
+                <p
+                  className={`${
+                    theme === "White Mode" ? "text-gray-600" : "text-gray-200"
+                  } ${bigText}`}
+                >
                   Languages: <span className={smallText}>{language}</span>
                 </p>
               </div>
             </div>
             <div>
               <div className="flex gap-2">
-                <p>Border Countries: </p>
+                <p
+                  className={`${
+                    theme === "White Mode" ? "text-gray-600" : "text-white"
+                  } text-sm font-semibold tracking-wide`}
+                >
+                  Border Countries:{" "}
+                </p>
                 <div className="flex gap-2">
                   {border
                     ? border.map((border, index) => (
                         <div
                           key={index}
-                          className="px-4 shadow-gray-300 shadow-sm rounded-sm cursor-pointer hover:shadow-lg"
+                          className={`${
+                            theme === "White Mode"
+                              ? "shadow-gray-300"
+                              : "shadow-slate-950"
+                          }  px-4 shadow-sm rounded-sm cursor-pointer hover:shadow-lg`}
                         >
                           <span className="text-xs">{border}</span>
                         </div>

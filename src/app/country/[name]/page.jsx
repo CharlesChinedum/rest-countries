@@ -1,5 +1,3 @@
-import Link from "next/link";
-import Image from "next/image";
 import CountryCard from "./CountryCard";
 
 import styles from "../../styles/Home.module.css";
@@ -14,7 +12,7 @@ const CountryPage = async ({ params: { name } }) => {
   const country = await getCountry(name);
   return (
     <>
-      <main>
+      <main className={`h-[calc(100vh-3rem)]`}>
         <CountryCard country={country} />
       </main>
     </>

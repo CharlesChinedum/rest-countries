@@ -23,7 +23,7 @@ interface Theme {
 
 const Card = ({ name, region, population, image, alt, capital }: Props) => {
   const { theme } = useThemeContext() as Theme;
-  console.log(capital);
+  // console.log(capital);
 
   return (
     <div className="w-[16rem] h-full  hover:scale-105 cursor-pointer">
